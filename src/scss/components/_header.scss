@@ -1,0 +1,98 @@
+
+.header{ 
+    background-color: red;
+    
+    img{ 
+        height: 30px;
+        width: 30px;
+    }
+
+    .container{ 
+        display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    }
+    
+    .leftButtons{ 
+        display: flex;
+        flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+        &__menu{ 
+            padding: 15px 20px 10px 40px;
+            
+            img {
+                cursor: pointer;
+                transition-property: all;
+                transition-duration: .2s;
+                
+                &:hover {
+                    padding: 0px 5px;
+                    
+                    border-radius: 5%;
+                }
+            }
+            
+        }
+
+        &__home{ 
+            padding: 15px 30px 12px 10px;
+            img {
+                cursor: pointer;
+                transition-property: all;
+                transition-duration: .2s;
+                border-radius: 30%;
+                &:hover {
+                    background-color: white;
+                    
+                }
+            }
+            }
+             
+        &__search{ 
+            padding: 15px 40px 15px 0;
+        }
+
+
+    }
+
+    .rightButtons{ 
+        display: flex;
+        flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+        
+    &__add{ 
+        padding: 15px 20px 10px 40px;
+        img{ 
+            cursor: pointer;
+            transition-property: all;
+             transition-duration: .2s;
+             border-radius: 50%;
+                &:hover {
+                    background-color: white;
+                    
+                }
+        }
+    }
+
+    &__help{ 
+        padding: 15px 40px 10px 30px;
+        img{ 
+            cursor: pointer;
+            transition-property: all;
+             transition-duration: .2s;
+             border-radius: 50%;
+                &:hover {
+                    padding: 0px 5px;
+                    
+                }
+        }
+
+    }
+
+    }
+
+}
