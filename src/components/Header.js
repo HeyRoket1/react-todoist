@@ -24,7 +24,7 @@ const Header = ({ onClickChangeSideBarState, onClickAddTaskByPlus }) => {
       const jsonDoneItems = dataDoneItems ? localStorage.setItem('doneItems', dataDoneItems) : [];
     }
     setIsMounted(true);
-  }, [items]);
+  }, [items, doneItems]);
   return (
     <div className="header">
       <div className="container">
