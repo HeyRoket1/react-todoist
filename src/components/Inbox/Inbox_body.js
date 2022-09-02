@@ -50,8 +50,6 @@ const Inbox_body = () => {
     }
   };
 
-  console.log(items);
-
   return (
     <div className="inbox__bodyTask">
       <div className="inbox__body-container">

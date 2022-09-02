@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AddedTask } from '../../redux/slices/taskBoxSlice';
 import { onClickTaskArea } from '../../redux/slices/taskBoxSlice';
@@ -16,6 +16,33 @@ const Inbox_buttons = ({
     onClickTaskButtonAdd();
     CancleWholeTask();
   };
+
+  const UseKey = (key, cd) => {
+    const callbackRef = useRef(cd);
+
+    useEffect(() => {
+      callbackRef.current = cd;
+    });
+
+    useEffect(() => {
+      const handel = (event) => {
+        if (event.code === key) {
+          callbackRef.current(event);
+          console.log(event);
+        }
+      };
+      document.addEventListener('keypress', handel);
+      return () => document.removeEventListener('keypress', handel);
+    }, [key]);
+  };
+
+  if (toOpenButtons) {
+    UseKey('Enter', onClickTaskArea);
+    UseKey('Escape', () => {
+      onClickTaskButtonAdd();
+      CancleWholeTask();
+    });
+  }
 
   if (!toOpenButtons) {
     return <div></div>;

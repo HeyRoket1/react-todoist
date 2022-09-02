@@ -40,6 +40,9 @@ const Inbox_taskBox = ({
             ref={valueOfTxtArea}
             value={taskValueArea}
             onChange={onTaskAreaChange}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') e.preventDefault();
+            }}
             placeholder="Add task"
           />
         </span>
@@ -49,6 +52,9 @@ const Inbox_taskBox = ({
           ref={valueOfDiscriptiom}
           value={discriptionAreaValue}
           onChange={onDiscriptionChange}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') e.preventDefault();
+          }}
           placeholder="Description"
         />
       </div>

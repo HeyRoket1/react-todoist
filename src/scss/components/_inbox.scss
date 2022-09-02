@@ -1,5 +1,4 @@
 
-
 .inbox{ 
     
     display: flex;
@@ -86,9 +85,7 @@
     } 
 
 
-   &__bodyTask{ 
-    // background-color: slateblue;
-   }
+  
 
    &__body-container{ 
     display: flex;
@@ -332,6 +329,7 @@
     height: 30px;
     width: 75px;
     padding-left: 8px;
+    margin-top: 5px;
     border: 1px solid grey;
     border-radius: 20px;
     background-color: red;
