@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getItemsFromLC } from '../../utils/getItemsFromLC';
+
+const getItems = getItemsFromLC();
 
 const initialState = {
-  items: [],
+  items: getItems.items,
 };
 
 export const taskBoxSlice = createSlice({

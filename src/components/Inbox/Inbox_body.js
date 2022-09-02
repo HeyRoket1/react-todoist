@@ -5,7 +5,7 @@ import Inbox_Task from './Inbox_Task';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { AddedTask } from '../../redux/slices/taskBoxSlice';
 
-const Inbox_body = () => {
+const Inbox_body = ({ addTaskBeforeAll, setAddTaskBeforeAll, setToOpenButtons, toOpenButtons }) => {
   const { items } = useSelector((state) => state.taskBoxSlice);
 
   const dispatch = useDispatch();
@@ -13,9 +13,6 @@ const Inbox_body = () => {
   const [taskValueArea, setTaskValueArea] = useState();
   const [discriptionAreaValue, setDiscriptionAreaValue] = useState();
   const [count, setCount] = useState(0);
-
-  const [addTaskBeforeAll, setAddTaskBeforeAll] = useState(false);
-  const [toOpenButtons, setToOpenButtons] = useState(false);
 
   const onClickTaskButtonAdd = () => {
     setAddTaskBeforeAll(!addTaskBeforeAll);

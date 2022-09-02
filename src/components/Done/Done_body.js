@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import dots from '../../assets/img/dots.png';
 import filter from '../../assets/img/filter.png';
@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 const Done_body = () => {
   const { doneItems } = useSelector((state) => state.doneSlice);
 
-  console.log('done', doneItems);
   return (
     <div className="Done__bodyTask">
       <div className="Done__body-container">

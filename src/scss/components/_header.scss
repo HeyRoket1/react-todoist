@@ -1,6 +1,6 @@
 
 .header{ 
-    background-color: red;
+    background-color: #db4c3f;
     
     img{ 
         height: 30px;
@@ -63,6 +63,16 @@
         flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+
+    &__cup{ 
+        display: flex;
+        flex-direction: row;
+
+
+        img{ 
+            margin: 13px 20px 0px 10px;
+        }
+    }
         
     &__add{ 
         padding: 15px 20px 10px 40px;

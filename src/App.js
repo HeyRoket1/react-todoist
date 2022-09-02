@@ -9,15 +9,25 @@ import Done from './components/pages/Done';
 
 const App = () => {
   const [sideBarPopUp, setSideBarPopUp] = useState(true);
+  const [addTaskBeforeAll, setAddTaskBeforeAll] = useState(false);
+  const [toOpenButtons, setToOpenButtons] = useState(false);
 
   const onClickChangeSideBarState = () => {
     setSideBarPopUp(!sideBarPopUp);
   };
 
+  const onClickAddTaskByPlus = () => {
+    setAddTaskBeforeAll(true);
+    setToOpenButtons(true);
+  };
+
   return (
     <div className="wrapper">
       <div className="upper-part">
-        <Header onClickChangeSideBarState={onClickChangeSideBarState} />
+        <Header
+          onClickChangeSideBarState={onClickChangeSideBarState}
+          onClickAddTaskByPlus={onClickAddTaskByPlus}
+        />
       </div>
       <div className="lower-part">
         <div className="lower-part__sidebar">
@@ -25,7 +35,17 @@ const App = () => {
         </div>
         <div className={`lower-part__inbox ${!sideBarPopUp && 'lower-part__inbox-fullScreen'}`}>
           <Routes>
-            <Route path="/" element={<Inbox />} />
+            <Route
+              path="/"
+              element={
+                <Inbox
+                  addTaskBeforeAll={addTaskBeforeAll}
+                  setAddTaskBeforeAll={setAddTaskBeforeAll}
+                  setToOpenButtons={setToOpenButtons}
+                  toOpenButtons={toOpenButtons}
+                />
+              }
+            />
             <Route path="/Done" element={<Done />} />
           </Routes>
         </div>
