@@ -31,7 +31,6 @@ const Inbox_taskBox = ({
       </button>
     );
   }
-
   return (
     <div className="inbox__task-box">
       <div className="inbox__taskName">
@@ -44,6 +43,7 @@ const Inbox_taskBox = ({
               if (e.key === 'Enter') e.preventDefault();
             }}
             placeholder="Add task"
+            required
           />
         </span>
       </div>

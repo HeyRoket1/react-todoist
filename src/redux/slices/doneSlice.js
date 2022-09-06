@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getDoneItemsFromLC } from '../../utils/getDoneItemsFromLC';
 
+let isMounted = false;
+
 const getDoneItems = getDoneItemsFromLC();
 
 const initialState = {
   doneItems: getDoneItems.DoneItems,
+  temporaryDoneItems: [],
 };
 
 export const doneSlice = createSlice({
@@ -20,6 +23,20 @@ export const doneSlice = createSlice({
     ClearDone(state) {
       state.doneItems = [];
     },
+    SearchDone(state, action) {
+      if (isMounted == false) {
+        state.temporaryDoneItems = state.doneItems;
+        isMounted = true;
+      }
+      state.doneItems = state.temporaryDoneItems.filter((state) =>
+        state.text.toLowerCase().includes(action.payload),
+      );
+
+      if (!action.payload) {
+        state.doneItems = state.temporaryDoneItems;
+        isMounted = false;
+      }
+    },
     // AddedDisctiptiom(state, action) {
     //   state.discriptionItems.push(action.payload);
     // },
@@ -27,6 +44,6 @@ export const doneSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { changeOfTaskArea, AddDoneTask, TaskDone, ClearDone } = doneSlice.actions;
+export const { changeOfTaskArea, AddDoneTask, TaskDone, ClearDone, SearchDone } = doneSlice.actions;
 
 export default doneSlice.reducer;

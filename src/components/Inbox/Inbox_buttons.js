@@ -28,7 +28,6 @@ const Inbox_buttons = ({
       const handel = (event) => {
         if (event.code === key) {
           callbackRef.current(event);
-          console.log(event);
         }
       };
       document.addEventListener('keypress', handel);
